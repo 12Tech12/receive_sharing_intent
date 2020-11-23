@@ -126,13 +126,14 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                     eventSinkText?(latestText)
                 }
             } else {
-                latestText = url.absoluteString
-                if(setInitialData) {
-                    initialText = latestText
-                }
-                eventSinkText?(latestText)
-            }
-            return true
+                //Roi
+                //latestText = url.absoluteString
+                //if(setInitialData) {
+                  //  initialText = latestText
+               // }
+               // eventSinkText?(latestText)
+            //}
+            //return true
         }
         latestMedia = nil
         latestText = nil
