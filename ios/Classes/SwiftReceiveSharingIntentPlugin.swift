@@ -132,8 +132,8 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                   //  initialText = latestText
                // }
                // eventSinkText?(latestText)
-            //}
-            //return true
+            }
+            //return flase
         }
         latestMedia = nil
         latestText = nil
