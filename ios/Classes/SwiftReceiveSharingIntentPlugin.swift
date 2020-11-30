@@ -53,15 +53,16 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
         if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             return handleUrl(url: url, setInitialData: true)
-        } else if let activityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
-            for key in activityDictionary.keys {
-                if let userActivity = activityDictionary[key] as? NSUserActivity {
-                    if let url = userActivity.webpageURL {
-                        return handleUrl(url: url, setInitialData: true)
-                    }
-                }
-            }
-        }
+        } 
+        //else if let activityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
+         //   for key in activityDictionary.keys {
+           //     if let userActivity = activityDictionary[key] as? NSUserActivity {
+             //       if let url = userActivity.webpageURL {
+               //         return handleUrl(url: url, setInitialData: true)
+                 //   }
+               // }
+           // }
+        //}
         return false
     }
     
