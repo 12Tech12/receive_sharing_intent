@@ -70,9 +70,9 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         return handleUrl(url: url, setInitialData: false)
     }
     
-    public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]) -> Void) -> Bool {
-        return handleUrl(url: userActivity.webpageURL, setInitialData: true)
-    }
+   // public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]) -> Void) -> Bool {
+     //   return handleUrl(url: userActivity.webpageURL, setInitialData: true)
+    //}
     
     private func handleUrl(url: URL?, setInitialData: Bool) -> Bool {
         if let url = url {
