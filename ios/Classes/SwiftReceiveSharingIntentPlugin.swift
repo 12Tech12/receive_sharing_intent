@@ -69,7 +69,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
             }
         }*/
         print("uni Roi: (application3)")
-        return true
+        return false
     }
     
     
