@@ -29,7 +29,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         let chargingChannelLink = FlutterEventChannel(name: kEventsChannelLink, binaryMessenger: registrar.messenger())
         chargingChannelLink.setStreamHandler(instance)
         
-        //registrar.addApplicationDelegate(instance)
+        registrar.addApplicationDelegate(instance)
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -50,6 +50,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         }
     }
     
+    /*
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
         
         if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
@@ -69,7 +70,9 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         print("uni Roi: (application3)")
         return false
     }
+    */
     
+    /*
     public func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print("uni Roi: (application4)")
         return handleUrl(url: url, setInitialData: false)
@@ -79,7 +82,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         print("uni Roi: (application5)")
         return handleUrl(url: userActivity.webpageURL, setInitialData: true)
     }
-    
+    */
     private func handleUrl(url: URL?, setInitialData: Bool) -> Bool {
         if let url = url {
             print("uni Roi: (application6)")
