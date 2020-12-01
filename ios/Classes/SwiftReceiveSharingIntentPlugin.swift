@@ -51,9 +51,10 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
     }
     
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
-        if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
-            return handleUrl(url: url, setInitialData: true)
-        } 
+        
+        //if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
+          //  return handleUrl(url: url, setInitialData: true)
+        //} 
         //else if let activityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
          //   for key in activityDictionary.keys {
            //     if let userActivity = activityDictionary[key] as? NSUserActivity {
@@ -67,12 +68,14 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
     }
     
     public func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return handleUrl(url: url, setInitialData: false)
+        //return handleUrl(url: url, setInitialData: false)
+        return false
     }
     
-   // public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]) -> Void) -> Bool {
+    public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]) -> Void) -> Bool {
      //   return handleUrl(url: userActivity.webpageURL, setInitialData: true)
-    //}
+        return false
+    }
     
     private func handleUrl(url: URL?, setInitialData: Bool) -> Bool {
         if let url = url {
