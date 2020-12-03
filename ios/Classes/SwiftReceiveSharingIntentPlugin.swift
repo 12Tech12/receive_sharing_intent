@@ -50,43 +50,36 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         }
     }
     
-    /*
+    
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
-       /* 
+       
         if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
-            print("uni Roi: (application1)")
             return handleUrl(url: url, setInitialData: true)
-        } */
-        /*
+        } 
+        
         else if let activityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
             for key in activityDictionary.keys {
                 if let userActivity = activityDictionary[key] as? NSUserActivity {
                     if let url = userActivity.webpageURL {
-                        print("uni Roi: (application2)")
                         return handleUrl(url: url, setInitialData: true)
                     }
                 }
             }
-        }*/
-        print("uni Roi: (application3)")
+        }
         return false
     }
-    */
     
-    /*
+    
     public func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("uni Roi: (application4)")
         return handleUrl(url: url, setInitialData: false)
     }
     
     public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]) -> Void) -> Bool {
-        print("uni Roi: (application5)")
         return handleUrl(url: userActivity.webpageURL, setInitialData: true)
     }
-    */
+    
     private func handleUrl(url: URL?, setInitialData: Bool) -> Bool {
         if let url = url {
-            print("uni Roi: (application6)")
             let appDomain = Bundle.main.bundleIdentifier!
             let userDefaults = UserDefaults(suiteName: "group.\(appDomain)")
             if url.fragment == "media" {
@@ -113,7 +106,6 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                     eventSinkMedia?(toJson(data: latestMedia))
                 }
             } else if url.fragment == "file" {
-                print("uni Roi: (application7)")
                 if let key = url.host?.components(separatedBy: "=").last,
                     let json = userDefaults?.object(forKey: key) as? Data {
                     let sharedArray = decode(data: json)
@@ -130,7 +122,6 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                     eventSinkMedia?(toJson(data: latestMedia))
                 }
             } else if url.fragment == "text" {
-                print("uni Roi: (application8)");
                 if let key = url.host?.components(separatedBy: "=").last,
                     let sharedArray = userDefaults?.object(forKey: key) as? [String] {
                     latestText =  sharedArray.joined(separator: ",")
@@ -140,17 +131,15 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                     eventSinkText?(latestText)
                 }
             } else {
-                print("uni Roi: (application9)")
                 //Roi
-                latestText = url.absoluteString
-                if(setInitialData) {
-                    initialText = latestText
-                }
-                eventSinkText?(latestText)
+                //latestText = url.absoluteString
+                //if(setInitialData) {
+                  //  initialText = latestText
+               // }
+               // eventSinkText?(latestText)
             }
-            return false
+            return true
         }
-        print("uni Roi: (application10)")
         latestMedia = nil
         latestText = nil
         return false
