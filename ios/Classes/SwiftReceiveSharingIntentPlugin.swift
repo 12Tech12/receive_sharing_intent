@@ -56,7 +56,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
         if let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             return handleUrl(url: url, setInitialData: true)
         } 
-        
+        /*
         else if let activityDictionary = launchOptions[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
             for key in activityDictionary.keys {
                 if let userActivity = activityDictionary[key] as? NSUserActivity {
@@ -65,8 +65,10 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                     }
                 }
             }
-        }
-        return false
+        }*/
+        
+        //Roi:
+        return true
     }
     
     
@@ -137,6 +139,7 @@ public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterSt
                   //  initialText = latestText
                // }
                // eventSinkText?(latestText)
+                return false
             }
             return true
         }
